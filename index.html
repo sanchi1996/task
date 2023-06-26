@@ -1,136 +1,141 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <title>CDAC</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-size: no-cover;
+        }
 
-    <meta charset = "UTF-8">
-	
-	<title> CDAC </title>
-	
-	<link rel = "stylesheet"  href = "ani.css">
-	<style>
+        .box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            padding: 40px;
+            background: rgba(66, 235, 244, 0.3);
+            box-sizing: border-box;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
 
-body {
-	      margin: 0;
-		  padding: 0;
-		  font-family: sans-serif;
-		  background: url(sanchi.gif);
-		  background-size: no-cover;
-	
+        .box h2 {
+            margin: 0 0 30px;
+            padding: 0;
+            color: #000000;
+            text-align: center;
+        }
 
-		 
-	 
-    }
-	
-.box {
-	    position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50% , -50%);
-		width: 400px;
-		padding: 40px;
-		background: rgba(66, 235, 244 , 0.3);
-		box-sizing: border-box;
-		box-shadow: 0 15px 25px rgba(0,0,0,0.5);
-		border-radius: 10px;
-		  
-     }
-	 
-.box h2 {
-	
-	       margin: 0 0 30px;
-		   padding: 0;
-		   color: #FFFFF;
-		   text-align: center;
-       }
-	   
-.box .inputBox {
-	
-	               position: relative;
-               }
-			   
-.box .inputBox input {
-	                   width: 100%;
-					   padding: 10px 0;
-					   font-size: 16px;
-					   color: #00008B;
-					   letter-spacing: 1px;
-					   margin-bottom: 30px;
-					   border: none;
-					   border-bottom: 1px solid #FF0000;
-					   outline: none;
-					   background: transparent;
-                    }
-			   
-			   
-.box .inputBox label {
-	                    position: absolute;
-                        top: 0;
-                        left: 0;
-                        padding: 10px 0;
-                        font-size: 16px;
-                        color: #FFFFF;
-			letter-spacing: 1px;
-                        pointer-events: none;
-                        transition: 0.5s;						
-                     }
-					 
-.box .inputBox input:focus ~ label ,
-.box .inputBox input:valid ~ label {
-	                                   top: -18px;
-									   left: 150px;
-									   font-size: 12px;
-                                   }
-								 
-.box input[type=submit] {
-	
-	                         background:  #03a9f4;
-							 border: none;
-							 outline: none;
-							 padding: 10px 20px;
-							 color: #ffff;
-							 cursor: pointer;
-							 border-radius: 5px;
-                        }
-			   
+        .box .inputBox {
+            position: relative;
+        }
 
-	</style>
+        .box .inputBox input {
+            width: 100%;
+            padding: 10px 0;
+            font-size: 16px;
+            color: #00008B;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            border: none;
+            border-bottom: 1px solid #0000FF;
+            outline: none;
+            background: transparent;
+        }
+
+        .box .inputBox label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 10px 0;
+            font-size: 16px;
+            color: #000000;
+            letter-spacing: 1px;
+            pointer-events: none;
+            transition: 0.5s;
+        }
+
+        .box .inputBox input:focus ~ label,
+        .box .inputBox input:valid ~ label {
+            top: -18px;
+            left: 150px;
+            font-size: 12px;
+        }
+
+        .box input[type=submit] {
+            background: #03a9f4;
+            border: none;
+            outline: none;
+            padding: 10px 20px;
+            color: #FFFFFF;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        function toggleForm() {
+            var loginForm = document.getElementById("login-form");
+            var signupForm = document.getElementById("signup-form");
+            var toggleBtn = document.getElementById("toggle-btn");
+
+            if (loginForm.style.display === "none") {
+                loginForm.style.display = "block";
+                signupForm.style.display = "none";
+                toggleBtn.innerText = "Sign up instead";
+            } else {
+                loginForm.style.display = "none";
+                signupForm.style.display = "block";
+                toggleBtn.innerText = "Login instead";
+            }
+        }
+    </script>
 </head>
 <body>
-
-    <div class = "box">
-	
-	    <h2> Registration Form </h2>
-		
-		<form>
-		   
-		       <div class = "inputBox">
-			   
-			       <input type = "text" name = "u" required = "">
-				   <label> Email ID </label>
-			   
-			   </div>
-			   
-			   <div class = "inputBox">
-			   
-			       <input type = "password" name = "p" required = "">
-				   <label> Password </label>
-			   
-			   </div>
-				<div class = "inputBox">
-			   
-			       <input type = "password" name = "p-repeat" required = "">
-				   <label> Confirm Password </label>
-
-<p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-			   <input type = "submit" value = "Sign Up">
-
-  
-
-		</form>
-	
-	
-	</div>
- 
-
+    <div class="box">
+        <h2>Login and Signup Form</h2>
+        <div id="login-form">
+            <form>
+                <div class="inputBox">
+                    <input type="text" name="u" required>
+                    <label>Email ID</label>
+                </div>
+                <div class="inputBox">
+                    <input type="password" name="p" required>
+                    <label>Password</label>
+                </div>
+                <input type="submit" value="Login">
+            </form>
+            <div class="toggle-form">
+                <p>Don't have an account? <a href="#" onclick="toggleForm()">Sign up instead</a></p>
+            </div>
+        </div>
+        <div id="signup-form" style="display: none;">
+            <form>
+                <div class="inputBox">
+                    <input type="text" name="email" required>
+                    <label>Email ID</label>
+                </div>
+                <div class="inputBox">
+                    <input type="password" name="password" required>
+                    <label>Password</label>
+                </div>
+                <div class="inputBox">
+                    <input type="password" name="confirm-password" required>
+                    <label>Confirm Password</label>
+                </div>
+                <p>By creating an account you agree to our <a href="#" style="color: dodgerblue">Terms & Privacy</a>.</p>
+                <input type="submit" value="Sign Up">
+            </form>
+            <div class="toggle-form">
+                <p>Already have an account? <a href="#" onclick="toggleForm()">Login instead</a></p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+
